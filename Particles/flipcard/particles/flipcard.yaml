@@ -1,0 +1,77 @@
+name: Flipcard
+description: Display the content with a front and back flipping card
+type: particle
+icon: fa-square-o
+
+form:
+  fields:
+    enabled:
+      type: input.checkbox
+      label: Enabled
+      description: Globally enable to the particles.
+      default: true
+
+    title:
+      type: input.text
+      label: Title
+      description: Customize the section title text.
+
+    css.class:
+      type: input.text
+      label: Class
+      description: CSS class name for the particle.
+
+    rows:
+      type: input.number
+      label: Cards in rows
+      description: Number of cards in rows.
+      default: 1
+
+    card.height:
+      type: input.text
+      label: Card height
+      description: The height of cards in px, em, vh (not %)
+      default: 300px
+
+    items:
+      type: collection.list
+      array: true
+      label: Content Items
+      description: Create each item to display.
+      value: name
+      ajax: true
+      
+      fields:
+        
+        .css.class:
+          type: input.text
+          label: Class
+          description: CSS class name for the card, same for front and back
+        .image_front:
+          type: input.imagepicker
+          label: Background image front
+          description: Select desired image.
+        .title_front:
+          type: input.text
+          label: Title front
+          description: Enter the title
+        .description_front:
+          type: textarea.textarea
+          label: Text / HTML front
+          description: Create each tag to display.
+          ajax: true
+        .image_back:
+          type: input.imagepicker
+          label: Background image back
+          description: Select desired image.
+        .title_back:
+          type: input.text
+          label: Title back
+          description: Enter the title
+        .description_back:
+          type: textarea.textarea
+          label: Text / HTML back
+          description: Create each tag to display.
+          ajax: true
+
+

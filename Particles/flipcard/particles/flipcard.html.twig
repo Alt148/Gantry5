@@ -1,0 +1,47 @@
+{#
+
+/**
+ * Flip card particle for Gantry 5
+ *
+ * CSS and HTML code from Callmenick.com
+ * http://callmenick.com/post/css-transitions-transforms-animations-flipping-card
+ * 
+ * Edited for Gantry 5 particle by Jörgen de Groot - Shift"o
+ *
+ */
+
+#}
+{% extends '@nucleus/partials/particle.html.twig' %}
+
+{% block particle %}
+
+{% if particle.items %}
+
+	<div class="g-flipcard {{ particle.css.class }}">
+		<div class="flipcard_container g-grid {{ particle.css.class }}">
+
+			{% set width = 100 / particle.rows  %}
+			{% set width = width|round(0,'floor') %}
+			
+			{% for item in particle.items %}
+		
+				<div class="flipcard effect_hover g-block size-{{ width }}" style="height: {{ particle.card.height }}">
+	            	<div class="card_front {{ item.css.class }}" {% if item.image_front %} style="background-image: url({{  url(item.image_front) }});" {% endif %}>
+	            		<h2>{{ item.title_front }}</h2>
+	              		<span class="card_text">{{ item.description_front }}</span>
+	            	</div>
+	            	<div class="card_back {{ item.css.class }}" {% if item.image_back %} style="background-image: url({{ url(item.image_back) }});" {% endif %}>
+	            		<h2>{{ item.title_back }}</h2>
+	              		<span class="card_text">{{ item.description_back }}</span>
+	            	</div>
+	          	</div>
+
+			{% endfor %}
+		
+		</div>
+	
+	</div>
+
+{% endif %}
+
+{% endblock %}

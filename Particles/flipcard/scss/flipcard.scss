@@ -1,0 +1,67 @@
+/**
+ * Flip card particle for Gantry 5
+ *
+ * CSS and HTML code from Callmenick.com
+ * http://callmenick.com/post/css-transitions-transforms-animations-flipping-card
+ * 
+ * Edited for Gantry 5 particle by Jörgen de Groot - Shift"o
+ *
+ * SCSS Bourbon Library
+ */
+
+.flipcard {
+  position: relative;
+  float: left;
+  text-align: center;
+}
+
+/* card fronts and backs */
+.card_front,
+.card_back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-origin: content-box;
+  background-repeat: no-repeat;
+}
+
+.card_front,
+.card_back {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.5s;
+          transition: transform 0.5s;
+}
+
+.card_front {
+  background-color: $accent-color-1;
+}
+
+.card_back {
+  background-color: $header-background;
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
+}
+
+/* card text */
+.card_text {
+  display: inline-block;
+  color: #fff;
+  padding: 1rem;
+}
+
+/* hover effect */
+.flipcard.effect_hover:hover {
+  .card_front {
+    -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
+  }
+
+ .card_back {
+    -webkit-transform: rotateY(0);
+            transform: rotateY(0);
+  }
+}

@@ -60,6 +60,11 @@ form:
           label: Text / HTML front
           description: Create each tag to display.
           ajax: true
+        .ishtml_front:
+          type: input.checkbox
+          label: Process as HTML
+          description: Description front is written in HTML
+          default: false
         .image_back:
           type: input.imagepicker
           label: Background image back
@@ -73,5 +78,8 @@ form:
           label: Text / HTML back
           description: Create each tag to display.
           ajax: true
-
-
+        .ishtml_back:
+          type: input.checkbox
+          label: Process as HTML
+          description: Description back is written in HTML
+          default: false

@@ -28,11 +28,19 @@
 				<div class="flipcard effect_hover g-block size-{{ width }}" style="height: {{ particle.card.height }}">
 	            	<div class="card_front {{ item.css.class }}" {% if item.image_front %} style="background-image: url({{  url(item.image_front) }});" {% endif %}>
 	            		<h2>{{ item.title_front }}</h2>
-	              		<span class="card_text">{{ item.description_front }}</span>
+	            		{% if item.ishtml_front %}
+							{{ item.description_front|html|raw }}
+	            		{% else %}
+	              			<span class="card_text">{{ item.description_front }}</span>
+	              		{% endif %}
 	            	</div>
 	            	<div class="card_back {{ item.css.class }}" {% if item.image_back %} style="background-image: url({{ url(item.image_back) }});" {% endif %}>
 	            		<h2>{{ item.title_back }}</h2>
-	              		<span class="card_text">{{ item.description_back }}</span>
+	            		{% if item.ishtml_back %}
+	            			{{ item.description_back|html|raw }}
+	            		{% else %}
+	              			<span class="card_text">{{ item.description_back }}</span>
+	              		{% endif %}
 	            	</div>
 	          	</div>
 
